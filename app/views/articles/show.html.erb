@@ -1,0 +1,12 @@
+<div class="max-w-4xl mx-auto px-6">
+  <h1 class="text-4xl font-bold text-center my-8">Article</h1>
+
+  <div class="bg-white rounded-lg shadow-lg mb-8">
+    <div class="px-6 py-8">
+      <h2 class="text-3xl font-bold mb-4"><%= @article.title %></h2>
+      <p class="text-gray-700 text-lg leading-relaxed"><%= @article.content %></p>
+    </div>
+  </div>
+
+  <%= link_to "Back to articles", articles_path, class: "text-blue-500 hover:underline" %>
+</div>

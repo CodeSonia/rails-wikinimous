@@ -9,8 +9,9 @@
 require 'faker'
 
 10.times do
-  Article.create(
+  generate_articles = Article.new(
     title: Faker::Book.title,
     content: Faker::Lorem.paragraph(sentence_count: 3)
   )
+  generate_articles.save!
 end

@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  # Shorthand that generates all the RESTful routes, index, new,
+  # create, show, edit, update and destroy
+  resources :articles
 end
