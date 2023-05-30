@@ -29,6 +29,33 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # GET /articles/:id/edit
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  # PATCH /articles/:id
+  def update
+    # Find the article to update
+    @article = Article.find(params[:id])
+
+    # If the article is updated successfully, redirect to the show action
+    # for that article
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      # Otherwise, render the edit template again
+      render :edit
+    end
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to articles_path, notice: "Article was successfully deleted", status: :see_other
+  end
+
   private
 
   def article_params

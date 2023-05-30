@@ -1,0 +1,17 @@
+<div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6">
+  <h1 class="text-3xl font-bold mb-6">Edit <%= @article.title %></h1>
+
+  <%= form_with model: @article, class: "space-y-4" do |f| %>
+    <div>
+      <%= f.label :title, class: "block text-gray-700 font-bold mb-2" %>
+      <%= f.text_field :title, value: @article.title, class: "w-full border border-gray-300 rounded py-2 px-4" %>
+    </div>
+
+    <div>
+      <%= f.label :content, class: "block text-gray-700 font-bold mb-2" %>
+      <%= f.text_field :content, value: @article.content, class: "w-full border border-gray-300 rounded py-2 px-4" %>
+    </div>
+
+    <%= f.submit "Update Article", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  <% end %>
+</div>
