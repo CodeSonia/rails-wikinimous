@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
+  before_action :set_article, only: %i[show edit update destroy]
   # GET /articles
   def index
     @articles = Article.all
@@ -6,7 +9,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/:id
   def show
-    @article = Article.find(params[:id])
+    # @article = Article.find(params[:id])
   end
 
   # GET /articles/new
@@ -31,13 +34,13 @@ class ArticlesController < ApplicationController
 
   # GET /articles/:id/edit
   def edit
-    @article = Article.find(params[:id])
+    # @article = Article.find(params[:id])
   end
 
   # PATCH /articles/:id
   def update
     # Find the article to update
-    @article = Article.find(params[:id])
+    # @article = Article.find(params[:id])
 
     # If the article is updated successfully, redirect to the show action
     # for that article
@@ -50,13 +53,17 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    # @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to articles_path, notice: "Article was successfully deleted", status: :see_other
+    redirect_to articles_path, notice: 'Article was successfully deleted', status: :see_other
   end
 
   private
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
   def article_params
     # Require the top-level key of "article" and permit the "title" and "body" keys
